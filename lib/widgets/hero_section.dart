@@ -5,76 +5,143 @@ class HeroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final isMobile = MediaQuery.of(context).size.width < 800;
 
     return Container(
       width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            theme.colorScheme.primary.withOpacity(0.05),
+            theme.colorScheme.surface,
+          ],
+        ),
+      ),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 24 : 64,
-        vertical: isMobile ? 48 : 96,
+        vertical: isMobile ? 64 : 120,
       ),
-      color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3),
-      child: Wrap(
-        alignment: WrapAlignment.center,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: 48,
-        runSpacing: 32,
-        children: [
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 500),
-            child: Column(
-              crossAxisAlignment: isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Expert Care, Inspiring Stories.',
-                  style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                  textAlign: isMobile ? TextAlign.center : TextAlign.start,
-                ),
-                const SizedBox(height: 24),
-                Text(
-                  'Providing specialized physiotherapy services and authoring books that guide you on your journey to health and fulfillment.',
-                  style: Theme.of(context).textTheme.titleMedium,
-                  textAlign: isMobile ? TextAlign.center : TextAlign.start,
-                ),
-                const SizedBox(height: 40),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1200),
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 80,
+            runSpacing: 40,
+            children: [
+              // Text Content
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 600),
+                child: Column(
+                  crossAxisAlignment: isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16)),
-                      child: const Text('Book Appointment'),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.primary.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Text(
+                        'HEAD OF DEPARTMENT | MPT | DOCTOR',
+                        style: theme.textTheme.labelLarge?.copyWith(
+                          color: theme.colorScheme.primary,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                        ),
+                      ),
                     ),
-                    const SizedBox(width: 16),
-                    OutlinedButton(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16)),
-                      child: const Text('Read My Books'),
+                    const SizedBox(height: 24),
+                    Text(
+                      'Shaping the Future of Physiotherapy Through Excellence.',
+                      style: theme.textTheme.displayMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        height: 1.2,
+                      ),
+                      textAlign: isMobile ? TextAlign.center : TextAlign.start,
+                    ),
+                    const SizedBox(height: 24),
+                    Text(
+                      'Dr. SOMnath is a distinguished Academic Leader, Physiotherapist, and Author dedicated to advancing clinical practice and education in the field of Physical Therapy.',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: Colors.grey[700],
+                        height: 1.6,
+                      ),
+                      textAlign: isMobile ? TextAlign.center : TextAlign.start,
+                    ),
+                    const SizedBox(height: 48),
+                    Wrap(
+                      spacing: 16,
+                      runSpacing: 16,
+                      alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: theme.primaryColor,
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            elevation: 0,
+                          ),
+                          child: const Text('Clinical Services'),
+                        ),
+                        OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+                            side: BorderSide(color: theme.primaryColor),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: const Text('View Research'),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(24),
-            child: Image.network(
-              'https://images.unsplash.com/photo-1576091160550-2173bdb999ef?auto=format&fit=crop&q=80&w=500',
-              width: 400,
-              height: 400,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) => Container(
-                width: 400,
-                height: 400,
-                color: Colors.grey[200],
-                child: const Icon(Icons.person, size: 100, color: Colors.grey),
               ),
-            ),
+              // Image Content
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 420,
+                    height: 420,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: theme.colorScheme.primary.withOpacity(0.1),
+                        width: 20,
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(200),
+                    child: Image.network(
+                      'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=500', // Placeholder or use the local path if possible
+                      width: 400,
+                      height: 400,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        width: 400,
+                        height: 400,
+                        color: Colors.grey[200],
+                        child: const Icon(Icons.person, size: 100, color: Colors.grey),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

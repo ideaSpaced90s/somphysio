@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../widgets/responsive_wrapper.dart';
+import '../widgets/site_header.dart';
 
 class AppShell extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -35,23 +36,15 @@ class AppShell extends StatelessWidget {
         ),
       ),
       desktop: Scaffold(
-        body: Row(
-          children: [
-            NavigationRail(
-              extended: MediaQuery.of(context).size.width > 1200,
-              selectedIndex: navigationShell.currentIndex,
-              onDestinationSelected: (index) => _onTap(context, index),
-              labelType: MediaQuery.of(context).size.width > 1200 ? NavigationRailLabelType.none : NavigationRailLabelType.all,
-              destinations: const [
-                NavigationRailDestination(icon: Icon(Icons.home), label: Text('Home')),
-                NavigationRailDestination(icon: Icon(Icons.timeline), label: Text('Journey')),
-                NavigationRailDestination(icon: Icon(Icons.book), label: Text('Books')),
-                NavigationRailDestination(icon: Icon(Icons.contact_mail), label: Text('Contact')),
-              ],
-            ),
-            const VerticalDivider(thickness: 1, width: 1),
-            Expanded(child: navigationShell),
-          ],
+        appBar: SiteHeader(
+          currentIndex: navigationShell.currentIndex,
+          onDestinationSelected: (index) => _onTap(context, index),
+        ),
+        body: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1400),
+            child: navigationShell,
+          ),
         ),
       ),
     );
