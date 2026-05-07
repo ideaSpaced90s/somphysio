@@ -13,7 +13,7 @@ class HeroSection extends StatelessWidget {
         horizontal: isMobile ? 24 : 64,
         vertical: isMobile ? 48 : 96,
       ),
-      color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.3),
+      color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3),
       child: Wrap(
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
