@@ -16,7 +16,7 @@ class AppTheme {
         primary: primaryNavy,
         secondary: accentBlue,
         surface: Colors.white,
-        background: backgroundLight,
+        onSurface: textDark,
         brightness: Brightness.light,
       ),
     );

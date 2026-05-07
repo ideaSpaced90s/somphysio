@@ -61,7 +61,7 @@ class ContactScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withValues(alpha: 0.05),
                         blurRadius: 30,
                         offset: const Offset(0, 10),
                       ),
@@ -119,7 +119,7 @@ class _ContactDetail extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: theme.colorScheme.primary.withOpacity(0.05),
+            color: theme.colorScheme.primary.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(icon, color: theme.colorScheme.primary, size: 24),

@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 64, horizontal: 24),
-            color: theme.colorScheme.primary.withOpacity(0.02),
+            color: theme.colorScheme.primary.withValues(alpha: 0.02),
             child: Column(
               children: [
                 Text(

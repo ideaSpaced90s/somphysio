@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
   final int currentIndex;
@@ -20,7 +19,7 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
