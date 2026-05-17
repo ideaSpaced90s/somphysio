@@ -41,14 +41,14 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'DR. SOMnath, MPT',
+                          'DR. SOMSANKAR MUKHERJEE',
                           style: theme.textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1.2,
                           ),
                         ),
                         Text(
-                          'HOD | AUTHOR | PHYSIOTHERAPIST',
+                          'PROFESSOR | AUTHOR | PHYSIOTHERAPIST',
                           style: theme.textTheme.labelSmall?.copyWith(
                             color: theme.colorScheme.secondary,
                             letterSpacing: 1.5,

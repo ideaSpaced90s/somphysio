@@ -25,8 +25,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'A legacy of academic leadership and clinical dedication.',
+                  'A legacy of academic leadership, clinical dedication, and scholarly contribution.',
                   style: theme.textTheme.titleMedium?.copyWith(color: Colors.grey[600]),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 64),
                 Wrap(
@@ -37,17 +38,17 @@ class HomeScreen extends StatelessWidget {
                     FeatureCard(
                       icon: Icons.account_balance,
                       title: 'Academic Leadership',
-                      description: 'As the Head of Department (HOD) in a top-tier university, I lead curriculum innovation and faculty excellence.',
+                      description: 'As former HOD at IGTAMSU and now Chairperson of the Arunachal Pradesh Allied & Healthcare Council, Dr. Mukherjee drives institutional and policy-level healthcare education across the nation.',
                     ),
                     FeatureCard(
                       icon: Icons.medical_services,
                       title: 'Clinical Excellence',
-                      description: 'With a Doctorate in Physical Therapy, I provide evidence-based care specializing in musculoskeletal rehabilitation.',
+                      description: 'With a PhD and MPT (Sports) from Dr. NTRUHS, Dr. Mukherjee brings 20 years of hands-on clinical practice in physiotherapy, delivering evidence-based patient-centered care.',
                     ),
                     FeatureCard(
                       icon: Icons.menu_book,
                       title: 'Published Author',
-                      description: 'Author of multiple textbooks and research papers shaping the future of physiotherapy education.',
+                      description: 'Author of 7+ physiotherapy textbooks and 30+ peer-reviewed research articles, shaping the future of physiotherapy education across India and internationally.',
                     ),
                   ],
                 ),
@@ -55,7 +56,30 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Academic Credential Section
+          // Stats Section
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 64, horizontal: 24),
+            color: theme.colorScheme.primary,
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1000),
+                child: Wrap(
+                  spacing: 64,
+                  runSpacing: 40,
+                  alignment: WrapAlignment.spaceAround,
+                  children: const [
+                    _StatItem(value: '20+', label: 'Years of Clinical Practice'),
+                    _StatItem(value: '18+', label: 'Years in Academia'),
+                    _StatItem(value: '7+', label: 'Textbooks Published'),
+                    _StatItem(value: '30+', label: 'Research Articles'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // Academic Affiliations Section
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 64, horizontal: 24),
@@ -63,7 +87,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Academic Affiliations',
+                  'Institutional Affiliations',
                   style: theme.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.2,
@@ -75,11 +99,11 @@ class HomeScreen extends StatelessWidget {
                   runSpacing: 32,
                   alignment: WrapAlignment.center,
                   crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    _AffiliationIcon(label: 'UNIVERSITY HOD'),
-                    _AffiliationIcon(label: 'BOARD CERTIFIED'),
-                    _AffiliationIcon(label: 'MPT COUNCIL'),
-                    _AffiliationIcon(label: 'RESEARCH GATE'),
+                  children: const [
+                    _AffiliationIcon(label: 'IGTAMSU', icon: Icons.account_balance),
+                    _AffiliationIcon(label: 'DR. NTRUHS', icon: Icons.local_hospital),
+                    _AffiliationIcon(label: 'AP COUNCIL', icon: Icons.gavel),
+                    _AffiliationIcon(label: 'GOOGLE SCHOLAR', icon: Icons.science),
                   ],
                 ),
               ],
@@ -93,12 +117,46 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class _AffiliationIcon extends StatelessWidget {
+class _StatItem extends StatelessWidget {
+  final String value;
   final String label;
-  const _AffiliationIcon({required this.label});
+  const _StatItem({required this.value, required this.label});
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          value,
+          style: const TextStyle(
+            fontSize: 48,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.white.withValues(alpha: 0.85),
+            letterSpacing: 0.5,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+class _AffiliationIcon extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  const _AffiliationIcon({required this.label, required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Container(
@@ -108,8 +166,14 @@ class _AffiliationIcon extends StatelessWidget {
             color: Colors.white,
             shape: BoxShape.circle,
             border: Border.all(color: Colors.grey[200]!),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.04),
+                blurRadius: 12,
+              ),
+            ],
           ),
-          child: Icon(Icons.school, color: Colors.grey[400], size: 40),
+          child: Icon(icon, color: theme.colorScheme.primary, size: 36),
         ),
         const SizedBox(height: 12),
         Text(
@@ -117,7 +181,7 @@ class _AffiliationIcon extends StatelessWidget {
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: Colors.grey[500],
+            color: Colors.grey[600],
             letterSpacing: 1.1,
           ),
         ),
