@@ -14,6 +14,7 @@ class BooksScreen extends StatelessWidget {
           'Covers physiotherapy syllabus as per Indian universities, ensuring exam relevance. Includes case studies, illustrations, and practical examples. Explains social and cultural factors affecting patient health and recovery.',
       'amazon': 'https://www.amazon.in/dp/9376862015',
       'flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
+      'coverImage': 'assets/images/sociology_cover.jpg',
     },
     {
       'title': 'Textbook of Psychology for Physiotherapy Students',
@@ -23,6 +24,7 @@ class BooksScreen extends StatelessWidget {
           'Aligned with the latest NCAHP curriculum, integrating psychological concepts with clinical physiotherapy practice. Uses simple language with examples, charts, and illustrations for easy learning.',
       'amazon': 'https://www.amazon.in/dp/9376862015',
       'flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
+      'coverImage': 'assets/images/psychology_cover.jpg',
     },
     {
       'title': 'Pedagogy in Physiotherapy: Theories and Practices',
@@ -32,6 +34,7 @@ class BooksScreen extends StatelessWidget {
           'Provides comprehensive understanding of teaching methods in physiotherapy education. Bridges theory with practical teaching strategies for clinical and academic settings.',
       'amazon': 'https://www.amazon.in/Pedagogy-Physiotherapy-Practices-Curriculum-Compliant/dp/9374245949/',
       'flipkart': 'https://www.flipkart.com/pedagogy-physiotherapy-theories-practices-ncahp-2025-curriculum-compliant/p/itm742da9f7100e1',
+      'coverImage': 'assets/images/pedagogy_cover.jpg',
     },
     {
       'title': 'Management and Administration in Physiotherapy Practice',
@@ -41,6 +44,7 @@ class BooksScreen extends StatelessWidget {
           'Covers essential topics like planning, staffing, budgeting, and quality control in physiotherapy services. Builds practical management and administrative skills for clinics and hospitals.',
       'amazon': 'https://www.amazon.in/Management-Administration-Physiotherapy-Practice-Curriculum/dp/9374241439/',
       'flipkart': 'https://www.flipkart.com/management-administration-physiotherapy-practice-ncahp-2025-curriculum-compliant/p/itmee13219fec5a4',
+      'coverImage': 'assets/images/management_cover.jpg',
     },
     {
       'title': 'Foundations of Ethics and Professionalism in Physiotherapy Practice',
@@ -50,6 +54,7 @@ class BooksScreen extends StatelessWidget {
           'Covers core ethical principles, professional conduct, and legal aspects in physiotherapy. Emphasises accountability, integrity, and patient-centered care values.',
       'amazon': 'https://www.amazon.in/Foundations-Ethics-Professionalism-Physiotherapy-Practice/dp/9374244217/',
       'flipkart': 'https://www.flipkart.com/foundations-ethics-professionalism-physiotherapy-practice-ncahp-2025-curriculum-compliant/p/itm9ca6a516f44c0',
+      'coverImage': 'assets/images/ethics_cover.jpg',
     },
   ];
 
@@ -96,7 +101,7 @@ class BooksScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 380,
-                  childAspectRatio: 0.62,
+                  childAspectRatio: 0.58,
                   crossAxisSpacing: 28,
                   mainAxisSpacing: 28,
                 ),
@@ -110,6 +115,7 @@ class BooksScreen extends StatelessWidget {
                     isbn: book['isbn'] as String,
                     amazonUrl: book['amazon'] as String,
                     flipkartUrl: book['flipkart'] as String,
+                    coverImagePath: book['coverImage'] as String,
                   );
                 },
               ),

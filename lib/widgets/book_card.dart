@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'book_purchase_dialog.dart';
 
@@ -8,6 +9,7 @@ class BookCard extends StatelessWidget {
   final String isbn;
   final String amazonUrl;
   final String flipkartUrl;
+  final String coverImagePath;
 
   const BookCard({
     super.key,
@@ -17,6 +19,7 @@ class BookCard extends StatelessWidget {
     required this.isbn,
     required this.amazonUrl,
     required this.flipkartUrl,
+    required this.coverImagePath,
   });
 
   @override
@@ -32,31 +35,61 @@ class BookCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Book cover placeholder with gradient
+          // Book cover header with premium ambient blurred backdrop
           Container(
-            height: 160,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  theme.colorScheme.primary,
-                  theme.colorScheme.secondary,
-                ],
-              ),
-            ),
+            height: 200,
+            color: Colors.black.withValues(alpha: 0.05),
             child: Stack(
+              clipBehavior: Clip.antiAlias,
               children: [
-                Center(
-                  child: Icon(Icons.menu_book, color: Colors.white.withValues(alpha: 0.15), size: 80),
+                // 1. Stretched ambient blurred background
+                Positioned.fill(
+                  child: Image.asset(
+                    coverImagePath,
+                    fit: BoxFit.cover,
+                  ),
                 ),
+                Positioned.fill(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                    child: Container(
+                      color: Colors.black.withValues(alpha: 0.2),
+                    ),
+                  ),
+                ),
+                // 2. Focused portrait cover in the center with drop shadow
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.25),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: Image.asset(
+                          coverImagePath,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                // 3. Page Count Badge
                 Positioned(
                   bottom: 12,
                   right: 12,
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.2),
+                      color: Colors.black.withValues(alpha: 0.6),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: Text(
