@@ -31,6 +31,7 @@ class AppShell extends StatelessWidget {
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.timeline), label: 'Journey'),
             BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Books'),
+            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Research'),
             BottomNavigationBarItem(icon: Icon(Icons.contact_mail), label: 'Contact'),
           ],
         ),

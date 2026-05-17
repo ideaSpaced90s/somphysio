@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../widgets/book_card.dart';
 
 class BooksScreen extends StatelessWidget {
@@ -58,13 +57,6 @@ class BooksScreen extends StatelessWidget {
     },
   ];
 
-  Future<void> _openUrl(String url) async {
-    final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -119,83 +111,9 @@ class BooksScreen extends StatelessWidget {
                   );
                 },
               ),
-
-              const SizedBox(height: 80),
-
-              // ── Research Publications ─────────────────────────────────────
-              Text(
-                'Research Publications',
-                style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 32),
-              _buildScholarBanner(context),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildScholarBanner(BuildContext context) {
-    final theme = Theme.of(context);
-    return Container(
-      padding: const EdgeInsets.all(40),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            theme.colorScheme.primary.withValues(alpha: 0.06),
-            theme.colorScheme.secondary.withValues(alpha: 0.04),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: theme.colorScheme.primary.withValues(alpha: 0.12)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(Icons.science, color: theme.colorScheme.primary, size: 36),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '30+ Peer-Reviewed Research Articles',
-                      style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Published in national and international physiotherapy and health sciences journals.',
-                      style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 28),
-          Wrap(
-            spacing: 16,
-            runSpacing: 12,
-            children: [
-              ElevatedButton.icon(
-                onPressed: () => _openUrl(
-                  'https://scholar.google.com/citations?user=D22r0K4AAAAJ&hl=en',
-                ),
-                icon: const Icon(Icons.open_in_new, size: 18),
-                label: const Text('View All on Google Scholar'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.colorScheme.primary,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 18),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

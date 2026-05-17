@@ -75,14 +75,19 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
                     onTap: () => onDestinationSelected(2),
                   ),
                   _HeaderLink(
-                    label: 'Contact',
+                    label: 'Research',
                     isSelected: currentIndex == 3,
                     onTap: () => onDestinationSelected(3),
+                  ),
+                  _HeaderLink(
+                    label: 'Contact',
+                    isSelected: currentIndex == 4,
+                    onTap: () => onDestinationSelected(4),
                   ),
                   const SizedBox(width: 24),
                   // CTA Button
                   ElevatedButton(
-                    onPressed: () => onDestinationSelected(3),
+                    onPressed: () => onDestinationSelected(4),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: theme.primaryColor,
                       foregroundColor: Colors.white,
