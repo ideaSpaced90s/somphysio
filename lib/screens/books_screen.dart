@@ -101,7 +101,7 @@ class BooksScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 380,
-                  childAspectRatio: 0.58,
+                  childAspectRatio: 0.85,
                   crossAxisSpacing: 28,
                   mainAxisSpacing: 28,
                 ),
