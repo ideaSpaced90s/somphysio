@@ -13,6 +13,10 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final width = MediaQuery.of(context).size.width;
+    final isNarrow = width < 1100;
+    final isVeryNarrow = width < 950;
+    final outerPadding = isVeryNarrow ? 16.0 : 24.0;
     
     return Container(
       decoration: BoxDecoration(
@@ -30,7 +34,7 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1200),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              padding: EdgeInsets.symmetric(horizontal: outerPadding, vertical: 12),
               child: Row(
                 children: [
                   // Logo/Name
@@ -44,14 +48,16 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
                           'DR. SOMSANKAR MUKHERJEE',
                           style: theme.textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
-                            letterSpacing: 1.2,
+                            fontSize: isVeryNarrow ? 16 : (isNarrow ? 18 : 22),
+                            letterSpacing: isVeryNarrow ? 0.8 : 1.2,
                           ),
                         ),
                         Text(
                           'PROFESSOR | AUTHOR | PHYSIOTHERAPIST',
                           style: theme.textTheme.labelSmall?.copyWith(
                             color: theme.colorScheme.secondary,
-                            letterSpacing: 1.5,
+                            fontSize: isVeryNarrow ? 8 : (isNarrow ? 9 : 11),
+                            letterSpacing: isVeryNarrow ? 1.0 : 1.5,
                           ),
                         ),
                       ],
@@ -84,20 +90,25 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
                     isSelected: currentIndex == 4,
                     onTap: () => onDestinationSelected(4),
                   ),
-                  const SizedBox(width: 24),
-                  // CTA Button
-                  ElevatedButton(
-                    onPressed: () => onDestinationSelected(4),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: theme.primaryColor,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                  if (!isVeryNarrow) ...[
+                    const SizedBox(width: 24),
+                    // CTA Button
+                    ElevatedButton(
+                      onPressed: () => onDestinationSelected(4),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.primaryColor,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isNarrow ? 16 : 24,
+                          vertical: isNarrow ? 12 : 18,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
+                      child: const Text('Book Appointment'),
                     ),
-                    child: const Text('Book Appointment'),
-                  ),
+                  ],
                 ],
               ),
             ),
@@ -125,9 +136,11 @@ class _HeaderLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final width = MediaQuery.of(context).size.width;
+    final double horizontalPadding = width < 950 ? 8.0 : (width < 1100 ? 12.0 : 16.0);
     
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       child: InkWell(
         onTap: onTap,
         onHover: (hovering) {

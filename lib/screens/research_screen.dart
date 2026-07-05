@@ -15,7 +15,7 @@ class ResearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final width = MediaQuery.of(context).size.width;
-    final isMobile = width < 800;
+    final isMobile = width < 1000;
 
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(

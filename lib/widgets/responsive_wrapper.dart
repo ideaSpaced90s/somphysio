@@ -10,14 +10,14 @@ class ResponsiveWrapper extends StatelessWidget {
     required this.desktop,
   });
 
-  static bool isMobile(BuildContext context) => MediaQuery.of(context).size.width < 800;
-  static bool isDesktop(BuildContext context) => MediaQuery.of(context).size.width >= 800;
+  static bool isMobile(BuildContext context) => MediaQuery.of(context).size.width < 1000;
+  static bool isDesktop(BuildContext context) => MediaQuery.of(context).size.width >= 1000;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth >= 800) {
+        if (constraints.maxWidth >= 1000) {
           return desktop;
         } else {
           return mobile;
