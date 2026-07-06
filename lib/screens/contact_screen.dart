@@ -110,6 +110,26 @@ class ContactScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
+              if (width < 950) ...[
+                const SizedBox(height: 24),
+                ElevatedButton.icon(
+                  onPressed: () => _launchUrl(
+                    'https://wa.me/917630059755?text=Hello%20Dr.%20Mukherjee,%20I%20would%20like%20to%20book%20an%20appointment.',
+                  ),
+                  icon: const Icon(Icons.calendar_month, size: 18),
+                  label: const Text('Book Appointment'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: theme.colorScheme.primary,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 18),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    elevation: 2,
+                    textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  ),
+                ),
+              ],
               const SizedBox(height: 48),
 
               // Contact Cards Grid

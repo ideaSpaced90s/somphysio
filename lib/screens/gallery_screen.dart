@@ -13,7 +13,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
   final List<String> _images = const [
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.27.jpeg',
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.28.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.29.jpeg',
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.29dg.jpeg',
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.30.jpeg',
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.31.jpeg',

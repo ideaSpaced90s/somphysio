@@ -7,8 +7,7 @@ class BookCard extends StatelessWidget {
   final String description;
   final String pages;
   final String isbn;
-  final String amazonUrl;
-  final String flipkartUrl;
+  final Map<String, String> purchaseLinks;
   final String coverImagePath;
 
   const BookCard({
@@ -17,8 +16,7 @@ class BookCard extends StatelessWidget {
     required this.description,
     required this.pages,
     required this.isbn,
-    required this.amazonUrl,
-    required this.flipkartUrl,
+    required this.purchaseLinks,
     required this.coverImagePath,
   });
 
@@ -140,9 +138,7 @@ class BookCard extends StatelessWidget {
                         context: context,
                         builder: (context) => BookPurchaseDialog(
                           title: title,
-                          description: description,
-                          amazonUrl: amazonUrl,
-                          flipkartUrl: flipkartUrl,
+                          purchaseLinks: purchaseLinks,
                         ),
                       );
                     },

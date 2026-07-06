@@ -11,9 +11,13 @@ class BooksScreen extends StatelessWidget {
       'isbn': '978-9376862016',
       'description':
           'Covers physiotherapy syllabus as per Indian universities, ensuring exam relevance. Includes case studies, illustrations, and practical examples. Explains social and cultural factors affecting patient health and recovery.',
-      'amazon': 'https://www.amazon.in/dp/9376862015',
-      'flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
       'coverImage': 'assets/images/sociology_cover.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/dp/9376862015',
+        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
+        'Astitva Store': 'https://astitvaprakashan.com/?post_type=product&p=10216&preview=true',
+        'Classic Shelf': 'https://classicshelf.in/products/textbook-of-sociology-for-physiotherapy-students-ncahp-2025-curriculum-compliant',
+      },
     },
     {
       'title': 'Textbook of Psychology for Physiotherapy Students',
@@ -21,9 +25,13 @@ class BooksScreen extends StatelessWidget {
       'isbn': '978-9376868810',
       'description':
           'Aligned with the latest NCAHP curriculum, integrating psychological concepts with clinical physiotherapy practice. Uses simple language with examples, charts, and illustrations for easy learning.',
-      'amazon': 'https://www.amazon.in/dp/9376862015',
-      'flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
       'coverImage': 'assets/images/psychology_cover.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/dp/9376862015',
+        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
+        'Astitva Store': 'https://astitvaprakashan.com/?post_type=product&p=10216&preview=true',
+        'Classic Shelf': 'https://classicshelf.in/products/textbook-of-sociology-for-physiotherapy-students-ncahp-2025-curriculum-compliant',
+      },
     },
     {
       'title': 'Pedagogy in Physiotherapy: Theories and Practices',
@@ -31,9 +39,13 @@ class BooksScreen extends StatelessWidget {
       'isbn': '978-9374245941',
       'description':
           'Provides comprehensive understanding of teaching methods in physiotherapy education. Bridges theory with practical teaching strategies for clinical and academic settings.',
-      'amazon': 'https://www.amazon.in/Pedagogy-Physiotherapy-Practices-Curriculum-Compliant/dp/9374245949/',
-      'flipkart': 'https://www.flipkart.com/pedagogy-physiotherapy-theories-practices-ncahp-2025-curriculum-compliant/p/itm742da9f7100e1',
       'coverImage': 'assets/images/pedagogy_cover.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/Pedagogy-Physiotherapy-Practices-Curriculum-Compliant/dp/9374245949/',
+        'Flipkart': 'https://www.flipkart.com/pedagogy-physiotherapy-theories-practices-ncahp-2025-curriculum-compliant/p/itm742da9f7100e1',
+        'Books Camel': 'https://bookscamel.in/app/views/shop-details.php?name=pedagogy-in-physiotherapy-theories-and-practices&q=MTM1NQ',
+        'Crown Publishers': 'https://bookscamel.in/app/views/shop-details.php?id=1355',
+      },
     },
     {
       'title': 'Management and Administration in Physiotherapy Practice',
@@ -41,9 +53,13 @@ class BooksScreen extends StatelessWidget {
       'isbn': '978-9374241431',
       'description':
           'Covers essential topics like planning, staffing, budgeting, and quality control in physiotherapy services. Builds practical management and administrative skills for clinics and hospitals.',
-      'amazon': 'https://www.amazon.in/Management-Administration-Physiotherapy-Practice-Curriculum/dp/9374241439/',
-      'flipkart': 'https://www.flipkart.com/management-administration-physiotherapy-practice-ncahp-2025-curriculum-compliant/p/itmee13219fec5a4',
       'coverImage': 'assets/images/management_cover.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/Management-Administration-Physiotherapy-Practice-Curriculum/dp/9374241439/',
+        'Flipkart': 'https://www.flipkart.com/management-administration-physiotherapy-practice-ncahp-2025-curriculum-compliant/p/itmee13219fec5a4',
+        'Books Camel': 'https://bookscamel.in/app/views/shop-details.php?name=management-and-administration-in-physiotherapy-practice&q=MTM1Mg',
+        'Crown Publishers': 'https://bookscamel.in/app/views/shop-details.php?id=1352',
+      },
     },
     {
       'title': 'Foundations of Ethics and Professionalism in Physiotherapy Practice',
@@ -51,9 +67,27 @@ class BooksScreen extends StatelessWidget {
       'isbn': '978-9374244210',
       'description':
           'Covers core ethical principles, professional conduct, and legal aspects in physiotherapy. Emphasises accountability, integrity, and patient-centered care values.',
-      'amazon': 'https://www.amazon.in/Foundations-Ethics-Professionalism-Physiotherapy-Practice/dp/9374244217/',
-      'flipkart': 'https://www.flipkart.com/foundations-ethics-professionalism-physiotherapy-practice-ncahp-2025-curriculum-compliant/p/itm9ca6a516f44c0',
       'coverImage': 'assets/images/ethics_cover.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/Foundations-Ethics-Professionalism-Physiotherapy-Practice/dp/9374244217/',
+        'Flipkart': 'https://www.flipkart.com/foundations-ethics-professionalism-physiotherapy-practice-ncahp-2025-curriculum-compliant/p/itm9ca6a516f44c0',
+        'Books Camel': 'https://bookscamel.in/app/views/shop-details.php?id=1354',
+        'Crown Publishers': 'https://bookscamel.in/app/views/shop-details.php?name=foundations-of-ethics-and-professionalism-in-physiotherapy-practice&q=MTM1NA',
+      },
+    },
+    {
+      'title': 'Introduction to National Healthcare Delivery System in India : As per NCAHP Curriculum for Bachelor of Physiotherapy',
+      'pages': '204 pages',
+      'isbn': '978-9374244951',
+      'description':
+          'Covers the national healthcare delivery system in India as per the NCAHP curriculum for Bachelor of Physiotherapy. Provides vital insights into public health structure, national policies, and healthcare administration.',
+      'coverImage': 'assets/images/healthcare_delivery_cover.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/dp/9374244950',
+        'Flipkart': 'https://www.flipkart.com/introduction-national-healthcare-delivery-system-india-per-ncahp-curriculum-bachelor-physiotherapy/p/itme69400c75311e?pid',
+        'Books Camel': 'https://bookscamel.in/app/views/shop-details.php?name=introduction-to-national-healthcare-delivery-system-in-india&q=MTUyNw',
+        'Google Books': 'https://play.google.com/store/books/details?id=xmjvEQAAQBAJ',
+      },
     },
   ];
 
@@ -84,7 +118,7 @@ class BooksScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                '5 titles published · 2 more under preparation',
+                '6 titles published · 1 more under preparation',
                 style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey[500]),
               ),
               const SizedBox(height: 32),
@@ -105,9 +139,8 @@ class BooksScreen extends StatelessWidget {
                     description: book['description'] as String,
                     pages: book['pages'] as String,
                     isbn: book['isbn'] as String,
-                    amazonUrl: book['amazon'] as String,
-                    flipkartUrl: book['flipkart'] as String,
                     coverImagePath: book['coverImage'] as String,
+                    purchaseLinks: Map<String, String>.from(book['purchaseLinks'] as Map),
                   );
                 },
               ),
