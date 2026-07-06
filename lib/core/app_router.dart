@@ -5,6 +5,7 @@ import '../screens/home_screen.dart';
 import '../screens/journey_screen.dart';
 import '../screens/books_screen.dart';
 import '../screens/research_screen.dart';
+import '../screens/gallery_screen.dart';
 import '../screens/contact_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -49,6 +50,14 @@ final appRouter = GoRouter(
             GoRoute(
               path: '/research',
               builder: (context, state) => const ResearchScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/gallery',
+              builder: (context, state) => const GalleryScreen(),
             ),
           ],
         ),
