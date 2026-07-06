@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
+  Future<void> _launchUrl(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
   final int currentIndex;
   final Function(int) onDestinationSelected;
 
@@ -99,7 +106,9 @@ class SiteHeader extends StatelessWidget implements PreferredSizeWidget {
                     const SizedBox(width: 24),
                     // CTA Button
                     ElevatedButton(
-                      onPressed: () => onDestinationSelected(5),
+                      onPressed: () => _launchUrl(
+                        'https://wa.me/917630059755?text=Hello%20Dr.%20Mukherjee,%20I%20would%20like%20to%20book%20an%20appointment.',
+                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: theme.primaryColor,
                         foregroundColor: Colors.white,
