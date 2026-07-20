@@ -27,10 +27,12 @@ class BooksScreen extends StatelessWidget {
           'Aligned with the latest NCAHP curriculum, integrating psychological concepts with clinical physiotherapy practice. Uses simple language with examples, charts, and illustrations for easy learning.',
       'coverImage': 'assets/images/psychology_cover.jpg',
       'purchaseLinks': {
-        'Amazon': 'https://www.amazon.in/dp/9376862015',
-        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
-        'Astitva Store': 'https://astitvaprakashan.com/?post_type=product&p=10216&preview=true',
-        'Classic Shelf': 'https://classicshelf.in/products/textbook-of-sociology-for-physiotherapy-students-ncahp-2025-curriculum-compliant',
+        'Amazon': 'https://www.amazon.in/dp/9376868811',
+        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376868810',
+        'Astitva Store':
+            'https://astitvaprakashan.com/product/textbook-of-psychology-for-physiotherapy-students-ncahp-2025-curriculum-compliant/',
+        'Classic Shelf':
+            'https://classicshelf.in/products/textbook-of-psychology-for-physiotherapy-students-ncahp-2025-curriculum-compliant',
       },
     },
     {
