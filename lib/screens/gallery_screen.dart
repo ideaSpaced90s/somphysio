@@ -216,9 +216,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
       code: 'F3',
       sectionLetter: 'F',
       imagePath: 'assets/images/WhatsApp Image 2026-08-15 at 08.47.15.jpeg',
-      title: '78th Independence Day Celebration',
+      title: '80th Independence Day Celebration',
       description:
-          'Dr. Som celebrating the 78th Independence Day with community members, dignitaries, and families during the ceremonial national flag hoisting event.',
+          'Dr. Som celebrating the 80th Independence Day with community members, dignitaries, and families during the ceremonial national flag hoisting event.',
       category: 'Media, Press & Public Outreach',
       categoryIcon: Icons.mic_external_on_outlined,
     ),
