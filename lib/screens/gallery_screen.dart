@@ -3,17 +3,21 @@ import 'package:flutter/services.dart';
 import '../core/app_theme.dart';
 
 class GalleryItem {
+  final String code; // e.g. 'A1', 'B2'
   final String imagePath;
   final String title;
   final String description;
   final String category;
+  final String sectionLetter;
   final IconData categoryIcon;
 
   const GalleryItem({
+    required this.code,
     required this.imagePath,
     required this.title,
     required this.description,
     required this.category,
+    required this.sectionLetter,
     required this.categoryIcon,
   });
 }
@@ -27,8 +31,10 @@ class GalleryScreen extends StatefulWidget {
 
 class _GalleryScreenState extends State<GalleryScreen> {
   static const List<GalleryItem> _allItems = [
-    // 1. Academic Lectures & Keynotes
+    // Section A: Academic Lectures & Keynotes
     GalleryItem(
+      code: 'A1',
+      sectionLetter: 'A',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.27.jpeg',
       title: 'Interactive Clinical Lecture',
       description:
@@ -37,6 +43,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.school_outlined,
     ),
     GalleryItem(
+      code: 'A2',
+      sectionLetter: 'A',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.33df.jpeg',
       title: 'Keynote on Muscle & Joint Physiology',
       description:
@@ -45,6 +53,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.school_outlined,
     ),
     GalleryItem(
+      code: 'A3',
+      sectionLetter: 'A',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.3f6.jpeg',
       title: 'TRIHMS Auditorium Address',
       description:
@@ -53,8 +63,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.school_outlined,
     ),
 
-    // 2. National Regulatory & Healthcare Policy Summits
+    // Section B: National Regulatory & Healthcare Policy Summits
     GalleryItem(
+      code: 'B1',
+      sectionLetter: 'B',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.29dg.jpeg',
       title: 'NCAHP National Council Summit',
       description:
@@ -63,6 +75,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.account_balance_outlined,
     ),
     GalleryItem(
+      code: 'B2',
+      sectionLetter: 'B',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.35.jpeg',
       title: 'Commission Bilateral Consultation',
       description:
@@ -71,6 +85,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.account_balance_outlined,
     ),
     GalleryItem(
+      code: 'B3',
+      sectionLetter: 'B',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.36.jpeg',
       title: 'Allied Health Statutory Deliberation',
       description:
@@ -79,8 +95,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.account_balance_outlined,
     ),
 
-    // 3. Institutional Leadership & Council Meetings
+    // Section C: Institutional Leadership & Council Meetings
     GalleryItem(
+      code: 'C1',
+      sectionLetter: 'C',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.28.jpeg',
       title: 'Academic Council Roundtable',
       description:
@@ -89,6 +107,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.groups_outlined,
     ),
     GalleryItem(
+      code: 'C2',
+      sectionLetter: 'C',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.34.jpeg',
       title: 'Inspection by Hon\'ble Governor',
       description:
@@ -97,6 +117,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.groups_outlined,
     ),
     GalleryItem(
+      code: 'C3',
+      sectionLetter: 'C',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.35df.jpeg',
       title: 'Executive Healthcare Boardroom',
       description:
@@ -105,6 +127,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.groups_outlined,
     ),
     GalleryItem(
+      code: 'C4',
+      sectionLetter: 'C',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.35sds.jpeg',
       title: 'TRIHMS Healthcare Week Symposium',
       description:
@@ -113,8 +137,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.groups_outlined,
     ),
 
-    // 4. Awards, Honors & Professional Felicitations
+    // Section D: Awards, Honors & Professional Felicitations
     GalleryItem(
+      code: 'D1',
+      sectionLetter: 'D',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.30.jpeg',
       title: 'World Physical Therapy Day Honor',
       description:
@@ -123,6 +149,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.emoji_events_outlined,
     ),
     GalleryItem(
+      code: 'D2',
+      sectionLetter: 'D',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.31.jpeg',
       title: '56th National IAP Conference Felicitation',
       description:
@@ -131,8 +159,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.emoji_events_outlined,
     ),
 
-    // 5. Graduations & Campus Community
+    // Section E: Graduations & Campus Community
     GalleryItem(
+      code: 'E1',
+      sectionLetter: 'E',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.33vf.jpeg',
       title: 'BPT Scholars Convocation',
       description:
@@ -141,6 +171,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.celebration_outlined,
     ),
     GalleryItem(
+      code: 'E2',
+      sectionLetter: 'E',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.31dsf.jpeg',
       title: 'Student Excursion & Mentorship',
       description:
@@ -149,6 +181,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.celebration_outlined,
     ),
     GalleryItem(
+      code: 'E3',
+      sectionLetter: 'E',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.3bvb9.37.jpeg',
       title: 'IGTAMSU Cultural Youth Festival',
       description:
@@ -157,8 +191,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.celebration_outlined,
     ),
 
-    // 6. Media, Press & Public Outreach
+    // Section F: Media, Press & Public Outreach
     GalleryItem(
+      code: 'F1',
+      sectionLetter: 'F',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.3c6.jpeg',
       title: 'Akashvani All India Radio Broadcast',
       description:
@@ -167,6 +203,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.mic_external_on_outlined,
     ),
     GalleryItem(
+      code: 'F2',
+      sectionLetter: 'F',
       imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.fg37.jpeg',
       title: 'Arunachal Press Club Briefing',
       description:
@@ -175,6 +213,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.mic_external_on_outlined,
     ),
     GalleryItem(
+      code: 'F3',
+      sectionLetter: 'F',
       imagePath: 'assets/images/WhatsApp Image 2026-08-15 at 08.47.15.jpeg',
       title: '78th Independence Day Celebration',
       description:
@@ -183,6 +223,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
       categoryIcon: Icons.mic_external_on_outlined,
     ),
     GalleryItem(
+      code: 'F4',
+      sectionLetter: 'F',
       imagePath: 'assets/images/WhatsApp Image 2026-08-15 at 08.47.15z (1).jpeg',
       title: 'Independence Day Flag Ceremony',
       description:
@@ -231,7 +273,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    // Group items by category for the "All Moments" view
+    // Group items by category
     final Map<String, List<GalleryItem>> groupedItems = {};
     for (final item in _allItems) {
       groupedItems.putIfAbsent(item.category, () => []).add(item);
@@ -273,6 +315,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 ...groupedItems.entries.map((entry) {
                   final categoryName = entry.key;
                   final items = entry.value;
+                  final sectionLetter = items.first.sectionLetter;
                   final categoryIcon = items.first.categoryIcon;
 
                   return Padding(
@@ -280,8 +323,13 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Category Header
-                        _buildCategoryHeader(categoryName, categoryIcon, items.length),
+                        // Category Header with Section Letter
+                        _buildCategoryHeader(
+                          'Section $sectionLetter • $categoryName',
+                          categoryIcon,
+                          items.length,
+                          sectionLetter,
+                        ),
                         const SizedBox(height: 24),
                         // Grid for this category
                         _buildGalleryGrid(items),
@@ -292,9 +340,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
               ] else ...[
                 // Filtered single category view
                 _buildCategoryHeader(
-                  _selectedCategory,
+                  'Section ${_filteredItems.first.sectionLetter} • $_selectedCategory',
                   _filteredItems.first.categoryIcon,
                   _filteredItems.length,
+                  _filteredItems.first.sectionLetter,
                 ),
                 const SizedBox(height: 24),
                 _buildGalleryGrid(_filteredItems),
@@ -346,7 +395,12 @@ class _GalleryScreenState extends State<GalleryScreen> {
     );
   }
 
-  Widget _buildCategoryHeader(String title, IconData icon, int count) {
+  Widget _buildCategoryHeader(
+    String title,
+    IconData icon,
+    int count,
+    String sectionLetter,
+  ) {
     return Row(
       children: [
         Container(
@@ -455,7 +509,7 @@ class _GalleryCardState extends State<GalleryCard> {
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: _isHovered
-                  ? AppTheme.accentBlue.withValues(alpha: 0.3)
+                  ? AppTheme.accentBlue.withValues(alpha: 0.35)
                   : Colors.grey.withValues(alpha: 0.15),
             ),
             boxShadow: [
@@ -473,7 +527,7 @@ class _GalleryCardState extends State<GalleryCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Image Section
+                // Image Section (Clean, unobstructed image)
                 Expanded(
                   flex: 11,
                   child: Stack(
@@ -498,31 +552,12 @@ class _GalleryCardState extends State<GalleryCard> {
                           },
                         ),
                       ),
-                      // Top gradient for legibility
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          height: 40,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.black.withValues(alpha: 0.35),
-                                Colors.transparent,
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
                       // Zoom icon indicator on hover
                       AnimatedOpacity(
                         opacity: _isHovered ? 1.0 : 0.0,
                         duration: const Duration(milliseconds: 200),
                         child: Container(
-                          color: Colors.black.withValues(alpha: 0.25),
+                          color: Colors.black.withValues(alpha: 0.2),
                           alignment: Alignment.center,
                           child: Container(
                             padding: const EdgeInsets.all(12),
@@ -550,7 +585,6 @@ class _GalleryCardState extends State<GalleryCard> {
                     color: Colors.white,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         // Title
                         Text(
@@ -558,22 +592,35 @@ class _GalleryCardState extends State<GalleryCard> {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                            fontSize: 15,
+                            fontSize: 14.5,
                             fontWeight: FontWeight.bold,
                             color: AppTheme.primaryNavy,
                           ),
                         ),
                         const SizedBox(height: 6),
-                        // 120-180 char description
+                        // Caption with code at the start
                         Expanded(
-                          child: Text(
-                            widget.item.description,
+                          child: RichText(
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 12.5,
-                              height: 1.4,
-                              color: Colors.grey[700],
+                            text: TextSpan(
+                              style: TextStyle(
+                                fontSize: 12.5,
+                                height: 1.4,
+                                color: Colors.grey[700],
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: '${widget.item.code}: ',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: AppTheme.primaryNavy,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: widget.item.description,
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -785,7 +832,7 @@ class _GalleryViewerDialogState extends State<GalleryViewerDialog> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.75),
+                      color: Colors.black.withValues(alpha: 0.78),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
                         color: Colors.white.withValues(alpha: 0.15),
@@ -821,7 +868,7 @@ class _GalleryViewerDialogState extends State<GalleryViewerDialog> {
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 8),
+                            const SizedBox(width: 10),
                             Expanded(
                               child: Text(
                                 currentItem.title,
@@ -836,13 +883,29 @@ class _GalleryViewerDialogState extends State<GalleryViewerDialog> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 6),
-                        Text(
-                          currentItem.description,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 13,
-                            height: 1.4,
+                        const SizedBox(height: 8),
+                        RichText(
+                          text: TextSpan(
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              height: 1.45,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: '${currentItem.code}: ',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              TextSpan(
+                                text: currentItem.description,
+                                style: TextStyle(
+                                  color: Colors.white.withValues(alpha: 0.95),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
