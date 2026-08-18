@@ -9,7 +9,7 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  // List of 18 images from assets/images
+  // List of images from assets/images
   final List<String> _images = const [
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.27.jpeg',
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.28.jpeg',
@@ -28,6 +28,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.3f6.jpeg',
     'assets/images/WhatsApp Image 2026-07-05 at 07.39.fg37.jpeg',
     'assets/images/WhatsApp Image 2026-07-05 at 07.3bvb9.37.jpeg',
+    'assets/images/WhatsApp Image 2026-08-15 at 08.47.15.jpeg',
+    'assets/images/WhatsApp Image 2026-08-15 at 08.47.15xc (1).jpeg',
+    'assets/images/WhatsApp Image 2026-08-15 at 08.47.15z (1).jpeg',
   ];
 
   void _openViewer(int initialIndex) {
