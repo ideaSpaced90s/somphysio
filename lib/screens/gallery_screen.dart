@@ -1,5 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../core/app_theme.dart';
+
+class GalleryItem {
+  final String imagePath;
+  final String title;
+  final String description;
+  final String category;
+  final IconData categoryIcon;
+
+  const GalleryItem({
+    required this.imagePath,
+    required this.title,
+    required this.description,
+    required this.category,
+    required this.categoryIcon,
+  });
+}
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
@@ -9,40 +26,201 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  // List of images from assets/images
-  final List<String> _images = const [
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.27.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.28.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.29dg.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.30.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.31.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.31dsf.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.33df.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.33vf.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.34.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.35.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.35df.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.35sds.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.36.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.3c6.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.3f6.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.39.fg37.jpeg',
-    'assets/images/WhatsApp Image 2026-07-05 at 07.3bvb9.37.jpeg',
-    'assets/images/WhatsApp Image 2026-08-15 at 08.47.15.jpeg',
-    'assets/images/WhatsApp Image 2026-08-15 at 08.47.15xc (1).jpeg',
-    'assets/images/WhatsApp Image 2026-08-15 at 08.47.15z (1).jpeg',
+  static const List<GalleryItem> _allItems = [
+    // 1. Academic Lectures & Keynotes
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.27.jpeg',
+      title: 'Interactive Clinical Lecture',
+      description:
+          'Dr. Som conducting an interactive clinical lecture with modern audiovisual aids, training physiotherapy students in contemporary rehabilitation techniques.',
+      category: 'Academic Lectures & Keynotes',
+      categoryIcon: Icons.school_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.33df.jpeg',
+      title: 'Keynote on Muscle & Joint Physiology',
+      description:
+          'Dr. Som delivering a keynote presentation on joint range of motion, therapeutic conditioning, and advanced muscle physiology for academic scholars.',
+      category: 'Academic Lectures & Keynotes',
+      categoryIcon: Icons.school_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.3f6.jpeg',
+      title: 'TRIHMS Auditorium Address',
+      description:
+          'Dr. Som addressing delegates and medical scholars from the prestigious podium at Tomo Riba Institute of Health & Medical Sciences (TRIHMS).',
+      category: 'Academic Lectures & Keynotes',
+      categoryIcon: Icons.school_outlined,
+    ),
+
+    // 2. National Regulatory & Healthcare Policy Summits
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.29dg.jpeg',
+      title: 'NCAHP National Council Summit',
+      description:
+          'Dr. Som participating in the National Commission for Allied and Healthcare Professions (NCAHP) National Council Summit in New Delhi with health ministry leaders.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.35.jpeg',
+      title: 'Commission Bilateral Consultation',
+      description:
+          'Dr. Som engaging in bilateral consultations with national commission leadership at the NCAHP headquarters regarding standardizing physiotherapy curricula.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.36.jpeg',
+      title: 'Allied Health Statutory Deliberation',
+      description:
+          'Dr. Som conferring with national regulatory officials on allied health policies and statutory framework implementation for clinical practice standards.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+
+    // 3. Institutional Leadership & Council Meetings
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.28.jpeg',
+      title: 'Academic Council Roundtable',
+      description:
+          'Dr. Som participating in a high-level academic council discussion alongside institutional leaders, shaping departmental curriculum and clinical initiatives.',
+      category: 'Institutional Leadership & Meetings',
+      categoryIcon: Icons.groups_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.34.jpeg',
+      title: 'Inspection by Hon\'ble Governor',
+      description:
+          'Dr. Som briefing the then Governor of Arunachal Pradesh, Brig. (Dr.) B. D. Mishra (Retd.), during an official inspection of the clinical rehabilitation facilities.',
+      category: 'Institutional Leadership & Meetings',
+      categoryIcon: Icons.groups_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.35df.jpeg',
+      title: 'Executive Healthcare Boardroom',
+      description:
+          'Dr. Som presiding at the executive boardroom table with regional healthcare administrators and senior medical delegates for healthcare strategy planning.',
+      category: 'Institutional Leadership & Meetings',
+      categoryIcon: Icons.groups_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.35sds.jpeg',
+      title: 'TRIHMS Healthcare Week Symposium',
+      description:
+          'Dr. Som honored as a distinguished guest alongside healthcare faculty and students during the annual Healthcare Professionals Week symposium at TRIHMS.',
+      category: 'Institutional Leadership & Meetings',
+      categoryIcon: Icons.groups_outlined,
+    ),
+
+    // 4. Awards, Honors & Professional Felicitations
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.30.jpeg',
+      title: 'World Physical Therapy Day Honor',
+      description:
+          'Dr. Som receiving an honorary memento and traditional felicitation during the official World Physical Therapy Day celebrations in recognition of excellence.',
+      category: 'Awards, Honors & Felicitations',
+      categoryIcon: Icons.emoji_events_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.31.jpeg',
+      title: '56th National IAP Conference Felicitation',
+      description:
+          'Dr. Som being felicitated with a floral bouquet and national honor at the 56th Annual Conference of the Indian Association of Physiotherapists (IAP).',
+      category: 'Awards, Honors & Felicitations',
+      categoryIcon: Icons.emoji_events_outlined,
+    ),
+
+    // 5. Graduations & Campus Community
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.33vf.jpeg',
+      title: 'BPT Scholars Convocation',
+      description:
+          'Dr. Som celebrating convocation day with graduating Bachelor of Physiotherapy (BPT) scholars holding their academic degrees and milestone certificates.',
+      category: 'Graduations & Campus Community',
+      categoryIcon: Icons.celebration_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.31dsf.jpeg',
+      title: 'Student Excursion & Mentorship',
+      description:
+          'Dr. Som sharing an informal, mentoring moment with university physiotherapy students during an outdoor academic excursion and institutional interaction.',
+      category: 'Graduations & Campus Community',
+      categoryIcon: Icons.celebration_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.3bvb9.37.jpeg',
+      title: 'IGTAMSU Cultural Youth Festival',
+      description:
+          'Dr. Som presiding over the university cultural youth festival celebrations alongside students in traditional indigenous attire at IGTAMSU University.',
+      category: 'Graduations & Campus Community',
+      categoryIcon: Icons.celebration_outlined,
+    ),
+
+    // 6. Media, Press & Public Outreach
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.3c6.jpeg',
+      title: 'Akashvani All India Radio Broadcast',
+      description:
+          'Dr. Som recording a public health broadcast at Akashvani (All India Radio) studio, raising awareness about rehabilitation sciences and wellness.',
+      category: 'Media, Press & Public Outreach',
+      categoryIcon: Icons.mic_external_on_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-07-05 at 07.39.fg37.jpeg',
+      title: 'Arunachal Press Club Briefing',
+      description:
+          'Dr. Som addressing media correspondents at the Arunachal Press Club regarding legal recognition and professional advancement in allied healthcare.',
+      category: 'Media, Press & Public Outreach',
+      categoryIcon: Icons.mic_external_on_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-08-15 at 08.47.15.jpeg',
+      title: '78th Independence Day Celebration',
+      description:
+          'Dr. Som celebrating the 78th Independence Day with community members, dignitaries, and families during the ceremonial national flag hoisting event.',
+      category: 'Media, Press & Public Outreach',
+      categoryIcon: Icons.mic_external_on_outlined,
+    ),
+    GalleryItem(
+      imagePath: 'assets/images/WhatsApp Image 2026-08-15 at 08.47.15z (1).jpeg',
+      title: 'Independence Day Flag Ceremony',
+      description:
+          'Dr. Som joining community representatives and institutional staff gathered around the national flag post in celebration of Independence Day.',
+      category: 'Media, Press & Public Outreach',
+      categoryIcon: Icons.mic_external_on_outlined,
+    ),
   ];
 
-  void _openViewer(int initialIndex) {
+  static const List<String> _categories = [
+    'All Moments',
+    'Academic Lectures & Keynotes',
+    'National Regulatory & Policy Summits',
+    'Institutional Leadership & Meetings',
+    'Awards, Honors & Felicitations',
+    'Graduations & Campus Community',
+    'Media, Press & Public Outreach',
+  ];
+
+  String _selectedCategory = 'All Moments';
+
+  List<GalleryItem> get _filteredItems {
+    if (_selectedCategory == 'All Moments') {
+      return _allItems;
+    }
+    return _allItems.where((item) => item.category == _selectedCategory).toList();
+  }
+
+  void _openViewer(List<GalleryItem> currentList, int initialIndex) {
     showGeneralDialog(
       context: context,
       barrierDismissible: true,
       barrierLabel: 'Gallery Viewer',
-      barrierColor: Colors.black.withValues(alpha: 0.9),
+      barrierColor: Colors.black.withValues(alpha: 0.92),
       transitionDuration: const Duration(milliseconds: 300),
       pageBuilder: (context, animation, secondaryAnimation) {
         return GalleryViewerDialog(
-          images: _images,
+          items: currentList,
           initialIndex: initialIndex,
         );
       },
@@ -53,55 +231,204 @@ class _GalleryScreenState extends State<GalleryScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    // Group items by category for the "All Moments" view
+    final Map<String, List<GalleryItem>> groupedItems = {};
+    for (final item in _allItems) {
+      groupedItems.putIfAbsent(item.category, () => []).add(item);
+    }
+
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 24),
+      padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 24),
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 1200),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Gallery & Moments', style: theme.textTheme.displayMedium),
-              const SizedBox(height: 16),
+              // Header Section
               Text(
-                'A visual showcase of certifications, academic events, clinical milestones, and professional highlights.',
-                style: theme.textTheme.titleMedium?.copyWith(color: Colors.grey[600]),
-              ),
-              const SizedBox(height: 48),
-              
-              // Image Grid
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 280,
-                  childAspectRatio: 1.0,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+                'Gallery & Moments',
+                style: theme.textTheme.displayMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.primaryNavy,
                 ),
-                itemCount: _images.length,
-                itemBuilder: (context, index) {
-                  return GalleryCard(
-                    imagePath: _images[index],
-                    onTap: () => _openViewer(index),
-                  );
-                },
               ),
+              const SizedBox(height: 12),
+              Text(
+                'A curated visual narrative of clinical milestones, academic lectures, national policy summits, and professional leadership.',
+                style: theme.textTheme.titleMedium?.copyWith(
+                  color: Colors.grey[700],
+                  height: 1.5,
+                ),
+              ),
+              const SizedBox(height: 36),
+
+              // Category Filter Pills
+              _buildCategorySelector(),
+              const SizedBox(height: 48),
+
+              // Display Sections
+              if (_selectedCategory == 'All Moments') ...[
+                // Grouped view by category
+                ...groupedItems.entries.map((entry) {
+                  final categoryName = entry.key;
+                  final items = entry.value;
+                  final categoryIcon = items.first.categoryIcon;
+
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 56),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Category Header
+                        _buildCategoryHeader(categoryName, categoryIcon, items.length),
+                        const SizedBox(height: 24),
+                        // Grid for this category
+                        _buildGalleryGrid(items),
+                      ],
+                    ),
+                  );
+                }),
+              ] else ...[
+                // Filtered single category view
+                _buildCategoryHeader(
+                  _selectedCategory,
+                  _filteredItems.first.categoryIcon,
+                  _filteredItems.length,
+                ),
+                const SizedBox(height: 24),
+                _buildGalleryGrid(_filteredItems),
+              ],
             ],
           ),
         ),
       ),
     );
   }
+
+  Widget _buildCategorySelector() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: _categories.map((cat) {
+          final isSelected = _selectedCategory == cat;
+          return Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: FilterChip(
+              label: Text(cat),
+              selected: isSelected,
+              onSelected: (_) {
+                setState(() {
+                  _selectedCategory = cat;
+                });
+              },
+              backgroundColor: Colors.white,
+              selectedColor: AppTheme.primaryNavy,
+              labelStyle: TextStyle(
+                color: isSelected ? Colors.white : AppTheme.textDark,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+                fontSize: 13,
+              ),
+              side: BorderSide(
+                color: isSelected
+                    ? AppTheme.primaryNavy
+                    : Colors.grey.withValues(alpha: 0.3),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+              showCheckmark: false,
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
+  Widget _buildCategoryHeader(String title, IconData icon, int count) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: AppTheme.primaryNavy.withValues(alpha: 0.08),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Icon(icon, color: AppTheme.primaryNavy, size: 22),
+        ),
+        const SizedBox(width: 14),
+        Expanded(
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: AppTheme.primaryNavy,
+              letterSpacing: -0.3,
+            ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          decoration: BoxDecoration(
+            color: Colors.grey.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Text(
+            '$count photos',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: Colors.grey[700],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildGalleryGrid(List<GalleryItem> items) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double width = constraints.maxWidth;
+        int crossAxisCount = 3;
+        if (width < 640) {
+          crossAxisCount = 1;
+        } else if (width < 960) {
+          crossAxisCount = 2;
+        }
+
+        return GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxisCount,
+            childAspectRatio: width < 640 ? 0.95 : 0.82,
+            crossAxisSpacing: 24,
+            mainAxisSpacing: 24,
+          ),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return GalleryCard(
+              item: item,
+              onTap: () => _openViewer(items, index),
+            );
+          },
+        );
+      },
+    );
+  }
 }
 
 class GalleryCard extends StatefulWidget {
-  final String imagePath;
+  final GalleryItem item;
   final VoidCallback onTap;
 
   const GalleryCard({
     super.key,
-    required this.imagePath,
+    required this.item,
     required this.onTap,
   });
 
@@ -120,45 +447,141 @@ class _GalleryCardState extends State<GalleryCard> {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: widget.onTap,
-        child: AnimatedScale(
-          scale: _isHovered ? 1.05 : 1.0,
+        child: AnimatedContainer(
           duration: const Duration(milliseconds: 250),
           curve: Curves.easeOutCubic,
-          child: AnimatedPhysicalModel(
-            duration: const Duration(milliseconds: 250),
-            curve: Curves.easeOutCubic,
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(16),
-            elevation: _isHovered ? 12 : 3,
+          decoration: BoxDecoration(
             color: Colors.white,
-            shadowColor: Colors.black.withValues(alpha: 0.25),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Image.asset(
-                    widget.imagePath,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[200],
-                        child: const Icon(
-                          Icons.broken_image,
-                          size: 40,
-                          color: Colors.grey,
-                        ),
-                      );
-                    },
-                  ),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 250),
-                    color: _isHovered
-                        ? Colors.black.withValues(alpha: 0.1)
-                        : Colors.transparent,
-                  ),
-                ],
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: _isHovered
+                  ? AppTheme.accentBlue.withValues(alpha: 0.3)
+                  : Colors.grey.withValues(alpha: 0.15),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: _isHovered
+                    ? Colors.black.withValues(alpha: 0.12)
+                    : Colors.black.withValues(alpha: 0.04),
+                blurRadius: _isHovered ? 20 : 8,
+                offset: Offset(0, _isHovered ? 8 : 4),
               ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Image Section
+                Expanded(
+                  flex: 11,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      AnimatedScale(
+                        scale: _isHovered ? 1.05 : 1.0,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeOutCubic,
+                        child: Image.asset(
+                          widget.item.imagePath,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              color: Colors.grey[200],
+                              child: const Icon(
+                                Icons.broken_image,
+                                size: 40,
+                                color: Colors.grey,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      // Top gradient for legibility
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.black.withValues(alpha: 0.35),
+                                Colors.transparent,
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // Zoom icon indicator on hover
+                      AnimatedOpacity(
+                        opacity: _isHovered ? 1.0 : 0.0,
+                        duration: const Duration(milliseconds: 200),
+                        child: Container(
+                          color: Colors.black.withValues(alpha: 0.25),
+                          alignment: Alignment.center,
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withValues(alpha: 0.6),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.fullscreen,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Card Details Section
+                Expanded(
+                  flex: 9,
+                  child: Container(
+                    padding: const EdgeInsets.all(14),
+                    color: Colors.white,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Title
+                        Text(
+                          widget.item.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: AppTheme.primaryNavy,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        // 120-180 char description
+                        Expanded(
+                          child: Text(
+                            widget.item.description,
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 12.5,
+                              height: 1.4,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -168,12 +591,12 @@ class _GalleryCardState extends State<GalleryCard> {
 }
 
 class GalleryViewerDialog extends StatefulWidget {
-  final List<String> images;
+  final List<GalleryItem> items;
   final int initialIndex;
 
   const GalleryViewerDialog({
     super.key,
-    required this.images,
+    required this.items,
     required this.initialIndex,
   });
 
@@ -201,7 +624,7 @@ class _GalleryViewerDialogState extends State<GalleryViewerDialog> {
   }
 
   void _nextPage() {
-    if (_currentIndex < widget.images.length - 1) {
+    if (_currentIndex < widget.items.length - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOutCubic,
@@ -220,12 +643,12 @@ class _GalleryViewerDialogState extends State<GalleryViewerDialog> {
 
   @override
   Widget build(BuildContext context) {
-    // Focus the node automatically for keyboard navigation
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _focusNode.requestFocus();
     });
 
-    final total = widget.images.length;
+    final total = widget.items.length;
+    final currentItem = widget.items[_currentIndex];
     final isDesktop = MediaQuery.of(context).size.width >= 768;
 
     return Focus(
@@ -249,88 +672,100 @@ class _GalleryViewerDialogState extends State<GalleryViewerDialog> {
         color: Colors.transparent,
         child: Stack(
           children: [
-            // Interactive View with PageView
-            GestureDetector(
-              onTap: () => Navigator.of(context).pop(), // Tap outside to close
-              child: Container(
-                color: Colors.transparent,
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: isDesktop ? 80.0 : 16.0,
-                    vertical: 60.0,
-                  ),
-                  child: InteractiveViewer(
-                    maxScale: 4.0,
-                    child: Center(
-                      child: AspectRatio(
-                        aspectRatio: 4 / 3, // Standard photography aspect ratio
-                        child: PageView.builder(
-                          controller: _pageController,
-                          itemCount: total,
-                          onPageChanged: (index) {
-                            setState(() {
-                              _currentIndex = index;
-                            });
-                          },
-                          itemBuilder: (context, index) {
-                            return Center(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.asset(
-                                  widget.images[index],
-                                  fit: BoxFit.contain,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Container(
-                                      color: Colors.black45,
-                                      child: const Icon(
-                                        Icons.broken_image,
-                                        size: 80,
-                                        color: Colors.white,
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+            // Backdrop & Dismissible Gesture
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: Container(color: Colors.black.withValues(alpha: 0.94)),
+              ),
+            ),
+
+            // Main Interactive Viewer & PageView
+            Positioned.fill(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: isDesktop ? 80.0 : 16.0,
+                  right: isDesktop ? 80.0 : 16.0,
+                  top: 70.0,
+                  bottom: 120.0,
+                ),
+                child: InteractiveViewer(
+                  maxScale: 4.0,
+                  child: Center(
+                    child: PageView.builder(
+                      controller: _pageController,
+                      itemCount: total,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _currentIndex = index;
+                        });
+                      },
+                      itemBuilder: (context, index) {
+                        return Center(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              widget.items[index].imagePath,
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Container(
+                                  color: Colors.black45,
+                                  child: const Icon(
+                                    Icons.broken_image,
+                                    size: 80,
+                                    color: Colors.white,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
               ),
             ),
 
-            // Top Header: Close Button and Page Counter
+            // Top Header: Page Counter & Close Button
             Positioned(
               top: 20,
-              left: 20,
-              right: 20,
+              left: 24,
+              right: 24,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Page Counter
+                  // Page Counter Badge
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.6),
+                      color: Colors.white.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      '${_currentIndex + 1} of $total',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.2),
                       ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(currentItem.categoryIcon, color: Colors.white, size: 16),
+                        const SizedBox(width: 8),
+                        Text(
+                          '${_currentIndex + 1} of $total',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   // Close Button
                   IconButton(
-                    icon: const Icon(Icons.close, color: Colors.white, size: 28),
+                    icon: const Icon(Icons.close, color: Colors.white, size: 26),
                     style: IconButton.styleFrom(
-                      backgroundColor: Colors.black.withValues(alpha: 0.6),
+                      backgroundColor: Colors.white.withValues(alpha: 0.15),
                       padding: const EdgeInsets.all(10),
                     ),
                     onPressed: () => Navigator.of(context).pop(),
@@ -339,36 +774,122 @@ class _GalleryViewerDialogState extends State<GalleryViewerDialog> {
               ),
             ),
 
-            // Left Navigation Arrow (Desktop/Swipe helper)
+            // Bottom Overlay: Title & Caption
+            Positioned(
+              bottom: 24,
+              left: isDesktop ? 60 : 16,
+              right: isDesktop ? 60 : 16,
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 800),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.75),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.15),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.5),
+                          blurRadius: 16,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppTheme.accentBlue.withValues(alpha: 0.4),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              child: Text(
+                                currentItem.category,
+                                style: const TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                currentItem.title,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          currentItem.description,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            height: 1.4,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            // Left Navigation Button
             if (_currentIndex > 0)
               Positioned(
-                left: 20,
+                left: 16,
                 top: 0,
                 bottom: 0,
                 child: Center(
                   child: IconButton(
-                    icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 24),
+                    icon: const Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Colors.white,
+                      size: 22,
+                    ),
                     style: IconButton.styleFrom(
-                      backgroundColor: Colors.black.withValues(alpha: 0.6),
-                      padding: const EdgeInsets.all(16),
+                      backgroundColor: Colors.white.withValues(alpha: 0.15),
+                      padding: const EdgeInsets.all(14),
                     ),
                     onPressed: _prevPage,
                   ),
                 ),
               ),
 
-            // Right Navigation Arrow (Desktop/Swipe helper)
+            // Right Navigation Button
             if (_currentIndex < total - 1)
               Positioned(
-                right: 20,
+                right: 16,
                 top: 0,
                 bottom: 0,
                 child: Center(
                   child: IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 24),
+                    icon: const Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 22,
+                    ),
                     style: IconButton.styleFrom(
-                      backgroundColor: Colors.black.withValues(alpha: 0.6),
-                      padding: const EdgeInsets.all(16),
+                      backgroundColor: Colors.white.withValues(alpha: 0.15),
+                      padding: const EdgeInsets.all(14),
                     ),
                     onPressed: _nextPage,
                   ),
