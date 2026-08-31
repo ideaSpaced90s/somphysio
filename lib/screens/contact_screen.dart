@@ -66,15 +66,6 @@ class ContactScreen extends StatelessWidget {
         'onTap': () => _launchUrl('tel:+917630059755'),
       },
       {
-        'icon': Icons.science_outlined,
-        'title': 'Google Scholar',
-        'subtitle': 'View 30+ Research Publications',
-        'actionLabel': 'View Publications',
-        'onTap': () => _launchUrl(
-              'https://scholar.google.com/citations?user=D22r0K4AAAAJ&hl=en',
-            ),
-      },
-      {
         'icon': Icons.schedule_outlined,
         'title': 'Consultation Hours',
         'subtitle': 'Mon – Fri: 09:00 AM – 04:00 PM',

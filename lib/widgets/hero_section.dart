@@ -91,39 +91,6 @@ class HeroSection extends StatelessWidget {
                           ),
                           textAlign: isMobile ? TextAlign.center : TextAlign.start,
                         ),
-                        const SizedBox(height: 48),
-                        Wrap(
-                          spacing: 16,
-                          runSpacing: 16,
-                          alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: theme.colorScheme.primary,
-                                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                elevation: 0,
-                              ),
-                              child: const Text('Clinical Services'),
-                            ),
-                            OutlinedButton(
-                              onPressed: () {},
-                              style: OutlinedButton.styleFrom(
-                                foregroundColor: Colors.white,
-                                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-                                side: const BorderSide(color: Colors.white),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              child: const Text('View Research'),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
                   ),
