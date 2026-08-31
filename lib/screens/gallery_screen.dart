@@ -356,43 +356,107 @@ class _GalleryScreenState extends State<GalleryScreen> {
   }
 
   Widget _buildCategorySelector() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: _categories.map((cat) {
-          final isSelected = _selectedCategory == cat;
-          return Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: FilterChip(
-              label: Text(cat),
-              selected: isSelected,
-              onSelected: (_) {
-                setState(() {
-                  _selectedCategory = cat;
-                });
-              },
-              backgroundColor: Colors.white,
-              selectedColor: AppTheme.primaryNavy,
-              labelStyle: TextStyle(
-                color: isSelected ? Colors.white : AppTheme.textDark,
-                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                fontSize: 13,
-              ),
-              side: BorderSide(
+    return Wrap(
+      spacing: 10,
+      runSpacing: 12,
+      children: _categories.map((cat) {
+        final isSelected = _selectedCategory == cat;
+        final count = cat == 'All Moments'
+            ? _allItems.length
+            : _allItems.where((i) => i.category == cat).length;
+
+        return InkWell(
+          onTap: () {
+            setState(() {
+              _selectedCategory = cat;
+            });
+          },
+          borderRadius: BorderRadius.circular(30),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            decoration: BoxDecoration(
+              color: isSelected ? AppTheme.primaryNavy : Colors.white,
+              borderRadius: BorderRadius.circular(30),
+              border: Border.all(
                 color: isSelected
                     ? AppTheme.primaryNavy
                     : Colors.grey.withValues(alpha: 0.3),
+                width: 1.5,
               ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-              showCheckmark: false,
+              boxShadow: [
+                BoxShadow(
+                  color: isSelected
+                      ? AppTheme.primaryNavy.withValues(alpha: 0.2)
+                      : Colors.black.withValues(alpha: 0.02),
+                  blurRadius: isSelected ? 8 : 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
-          );
-        }).toList(),
-      ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  cat == 'All Moments'
+                      ? Icons.grid_view_rounded
+                      : _getCategoryIcon(cat),
+                  size: 16,
+                  color: isSelected ? Colors.white : AppTheme.primaryNavy,
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  cat,
+                  style: TextStyle(
+                    color: isSelected ? Colors.white : AppTheme.textDark,
+                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                    fontSize: 13,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? Colors.white.withValues(alpha: 0.2)
+                        : Colors.grey.withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    '$count',
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                      color: isSelected ? Colors.white : Colors.grey[700],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      }).toList(),
     );
+  }
+
+  IconData _getCategoryIcon(String category) {
+    switch (category) {
+      case 'Academic Lectures & Keynotes':
+        return Icons.school_outlined;
+      case 'National Regulatory & Policy Summits':
+        return Icons.account_balance_outlined;
+      case 'Institutional Leadership & Meetings':
+        return Icons.groups_outlined;
+      case 'Awards, Honors & Felicitations':
+        return Icons.emoji_events_outlined;
+      case 'Graduations & Campus Community':
+        return Icons.celebration_outlined;
+      case 'Media, Press & Public Outreach':
+        return Icons.mic_external_on_outlined;
+      default:
+        return Icons.photo_library_outlined;
+    }
   }
 
   Widget _buildCategoryHeader(
