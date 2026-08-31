@@ -57,21 +57,30 @@ class ResearchScreen extends StatelessWidget {
                       children: [
                         _buildScholarDashboard(context),
                         const SizedBox(height: 32),
+                        _buildLiteratureTimesCard(context, isMobile),
+                        const SizedBox(height: 32),
                         _buildMentorshipCard(context),
                       ],
                     )
-                  : Row(
+                  : Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          flex: 3,
-                          child: _buildScholarDashboard(context),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 3,
+                              child: _buildScholarDashboard(context),
+                            ),
+                            const SizedBox(width: 32),
+                            Expanded(
+                              flex: 2,
+                              child: _buildMentorshipCard(context),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 32),
-                        Expanded(
-                          flex: 2,
-                          child: _buildMentorshipCard(context),
-                        ),
+                        const SizedBox(height: 32),
+                        _buildLiteratureTimesCard(context, isMobile),
                       ],
                     ),
               const SizedBox(height: 64),
@@ -204,7 +213,7 @@ class ResearchScreen extends StatelessWidget {
             children: [
               _buildStatItem(context, '30+', 'Research Articles'),
               Container(width: 1, height: 50, color: Colors.grey[200]),
-              _buildStatItem(context, '7+', 'Textbooks Published'),
+              _buildStatItem(context, '9+', 'Textbooks Published'),
               Container(width: 1, height: 50, color: Colors.grey[200]),
               _buildStatItem(context, '20+', 'Years Experience'),
             ],
@@ -220,21 +229,252 @@ class ResearchScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 32),
-          ElevatedButton.icon(
-            onPressed: () => _openUrl(
+          InkWell(
+            onTap: () => _openUrl(
               'https://scholar.google.com/citations?user=D22r0K4AAAAJ&hl=en',
             ),
-            icon: const Icon(Icons.school, size: 20),
-            label: const Text('View Dr. Som\'s Google Scholar Profile'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: theme.colorScheme.primary,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 22),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: theme.colorScheme.primary.withValues(alpha: 0.15),
+                  width: 1.5,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.03),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
-              elevation: 2,
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.primary.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Icon(
+                      Icons.school,
+                      size: 22,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'View Dr. Som\'s Google Scholar Profile',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: theme.colorScheme.primary,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          'scholar.google.com · Citations, Metrics & Indexed Articles',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Icon(
+                    Icons.open_in_new,
+                    size: 18,
+                    color: theme.colorScheme.secondary,
+                  ),
+                ],
+              ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLiteratureTimesCard(BuildContext context, bool isMobile) {
+    final theme = Theme.of(context);
+
+    final articles = [
+      {
+        'title': 'Research Methodology Vol. 1',
+        'subtitle': 'The Literature Times Article',
+        'url':
+            'https://www.theliteraturetimes.com/book-release-guide-to-research-methodology-for-allied-and-healthcare-professionals-by-dr-som-sankar-mukherjee-phd/',
+      },
+      {
+        'title': 'Research Methodology Vol. 2',
+        'subtitle': 'The Literature Times Article',
+        'url':
+            'https://www.theliteraturetimes.com/book-release-guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-2-by-dr-som-sankar-mukherjee-ph-d/',
+      },
+      {
+        'title': 'Research Methodology Vol. 3',
+        'subtitle': 'The Literature Times Article',
+        'url':
+            'https://www.theliteraturetimes.com/book-release-guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-3-by-dr-som-sankar-mukherjee-ph-d/',
+      },
+      {
+        'title': 'Author Spotlight & Press',
+        'subtitle': 'The Literature Times Coverage',
+        'url': 'https://www.theliteraturetimes.com/search/Som+Sankar+Mukherjee/',
+      },
+    ];
+
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(isMobile ? 24 : 36),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.grey[200]!),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary.withValues(alpha: 0.08),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.newspaper,
+                  color: theme.colorScheme.primary,
+                  size: 28,
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'The Literature Times Articles & Press',
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      'National literary features, reviews & book releases',
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Special feature articles and release announcements published in The Literature Times covering the "Guide to Research Methodology for Allied and Healthcare Professionals" trilogy and author profile.',
+            style: theme.textTheme.bodyLarge?.copyWith(
+              color: Colors.grey[700],
+              height: 1.6,
+            ),
+          ),
+          const SizedBox(height: 24),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: isMobile ? 1 : 2,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              mainAxisExtent: 72,
+            ),
+            itemCount: articles.length,
+            itemBuilder: (context, index) {
+              final article = articles[index];
+              return InkWell(
+                onTap: () => _openUrl(article['url']!),
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.02),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: theme.colorScheme.primary.withValues(alpha: 0.12),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.primary.withValues(alpha: 0.08),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Icon(
+                          Icons.article_outlined,
+                          size: 20,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              article['title']!,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Colors.black87,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              article['subtitle']!,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[600],
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(
+                        Icons.open_in_new,
+                        size: 16,
+                        color: theme.colorScheme.secondary,
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

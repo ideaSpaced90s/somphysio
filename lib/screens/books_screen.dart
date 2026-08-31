@@ -14,7 +14,7 @@ class BooksScreen extends StatelessWidget {
       'coverImage': 'assets/images/sociology_cover.jpg',
       'purchaseLinks': {
         'Amazon': 'https://www.amazon.in/dp/9376862015',
-        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376862016',
+        'Flipkart': 'https://www.flipkart.com/search?q=9789376862016',
         'Astitva Store': 'https://astitvaprakashan.com/?post_type=product&p=10216&preview=true',
         'Classic Shelf': 'https://classicshelf.in/products/textbook-of-sociology-for-physiotherapy-students-ncahp-2025-curriculum-compliant',
       },
@@ -28,7 +28,7 @@ class BooksScreen extends StatelessWidget {
       'coverImage': 'assets/images/psychology_cover.jpg',
       'purchaseLinks': {
         'Amazon': 'https://www.amazon.in/dp/9376868811',
-        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376868810',
+        'Flipkart': 'https://www.flipkart.com/search?q=9789376868810',
         'Astitva Store':
             'https://astitvaprakashan.com/product/textbook-of-psychology-for-physiotherapy-students-ncahp-2025-curriculum-compliant/',
         'Classic Shelf':
@@ -91,6 +91,54 @@ class BooksScreen extends StatelessWidget {
         'Google Books': 'https://play.google.com/store/books/details?id=xmjvEQAAQBAJ',
       },
     },
+    {
+      'title': 'Guide to Research Methodology for Allied and Healthcare Professionals (Volume - 1)',
+      'pages': '857 pages',
+      'isbn': '978-9376860173',
+      'description':
+          'A comprehensive handbook for Master\'s and PhD scholars in allied and healthcare professions. Covers foundational research processes, problem formulation, hypothesis design, literature reviews, research designs, and biostatistics.',
+      'coverImage': 'assets/images/research_methodology_vol1.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/dp/9376860179',
+        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376860173',
+        'Astitva Store':
+            'https://astitvaprakashan.com/product/guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-1/',
+        'Classic Shelf':
+            'https://classicshelf.in/products/guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-1-a-comprehensive-handbook-for-master-s-and-phd-scholars-in-allied-and-healthcare-professions',
+      },
+    },
+    {
+      'title': 'Guide to Research Methodology for Allied and Healthcare Professionals (Volume - 2)',
+      'pages': 'Chapters 8–13',
+      'isbn': '978-9376869152',
+      'description':
+          'Focuses on the systematic execution of healthcare research, sampling techniques, measurement tools, data collection, and essential research ethics including informed consent, patient privacy, and clinical research integrity.',
+      'coverImage': 'assets/images/research_methodology_vol2.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/dp/937686915X',
+        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376869152',
+        'Astitva Store':
+            'https://astitvaprakashan.com/product/guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-2/',
+        'Classic Shelf':
+            'https://classicshelf.in/products/guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-2-a-comprehensive-handbook-for-master-s-and-phd-scholars-in-allied-and-healthcare-professions',
+      },
+    },
+    {
+      'title': 'Guide to Research Methodology for Allied and Healthcare Professionals (Volume - 3)',
+      'pages': 'Chapters 14–18',
+      'isbn': '978-9376860401',
+      'description':
+          'Advanced practical handbook on planning, conducting, analyzing, and applying scientific research in real-world clinical and academic settings to support evidence-based healthcare practice and decision making.',
+      'coverImage': 'assets/images/research_methodology_vol3.jpg',
+      'purchaseLinks': {
+        'Amazon': 'https://www.amazon.in/dp/9376860403',
+        'Flipkart': 'https://www.flipkart.com/product/p/itme?pid=9789376860401',
+        'Astitva Store':
+            'https://astitvaprakashan.com/product/guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-3/',
+        'Classic Shelf':
+            'https://classicshelf.in/products/guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-3-a-comprehensive-handbook-for-master-s-and-phd-scholars-in-allied-and-healthcare-professions',
+      },
+    },
   ];
 
   @override
@@ -115,12 +163,12 @@ class BooksScreen extends StatelessWidget {
               
               // ── Featured Textbooks ─────────────────────────────────────────
               Text(
-                'Published Textbooks',
+                'Published Textbooks & Research Handbooks',
                 style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Text(
-                '6 titles published · 1 more under preparation',
+                '9 titles published · NCAHP & Research Methodology Series',
                 style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey[500]),
               ),
               const SizedBox(height: 32),

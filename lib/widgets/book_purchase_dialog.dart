@@ -180,9 +180,16 @@ class _StoreButtonState extends State<_StoreButton> {
           'icon': Icons.local_mall_outlined,
         };
       case 'astitva store':
+      case 'astitva prakashan':
         return {
           'color': const Color(0xFF8E24AA),
           'icon': Icons.menu_book_outlined,
+        };
+      case 'the literature times':
+      case 'literature times':
+        return {
+          'color': const Color(0xFF1A237E),
+          'icon': Icons.newspaper_outlined,
         };
       case 'classic shelf':
         return {
