@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                     FeatureCard(
                       icon: Icons.menu_book,
                       title: 'Published Author',
-                      description: 'Author of 7+ physiotherapy textbooks and 30+ peer-reviewed research articles, shaping the future of physiotherapy education across India and internationally.',
+                      description: 'Author of 10+ physiotherapy textbooks and 30+ peer-reviewed research articles, shaping the future of physiotherapy education across India and internationally.',
                     ),
                   ],
                 ),
@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                   children: const [
                     _StatItem(value: '20+', label: 'Years of Clinical Practice'),
                     _StatItem(value: '18+', label: 'Years in Academia'),
-                    _StatItem(value: '7+', label: 'Textbooks Published'),
+                    _StatItem(value: '10+', label: 'Textbooks Published'),
                     _StatItem(value: '30+', label: 'Research Articles'),
                   ],
                 ),

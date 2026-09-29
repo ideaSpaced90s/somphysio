@@ -139,6 +139,19 @@ class BooksScreen extends StatelessWidget {
             'https://classicshelf.in/products/guide-to-research-methodology-for-allied-and-healthcare-professionals-volume-3-a-comprehensive-handbook-for-master-s-and-phd-scholars-in-allied-and-healthcare-professions',
       },
     },
+    {
+      'title': 'The Science of Meditation: Evidence-Based Applications in Healthcare',
+      'pages': '192 pages',
+      'isbn': '978-8167451767',
+      'description':
+          'A comprehensive collection of evidence and knowledge on the role of meditation in health and well-being. Explores historical concepts, schools of thought, and practical techniques like Vipassana, Trataka, and Mindfulness as evidence-based complementary approaches in healthcare, rehabilitation, and clinical practice.',
+      'coverImage': 'assets/images/meditation_cover.jpg',
+      'purchaseLinks': {
+        'Books Camel': 'https://bookscamel.in/shop-details?name=the-science-of-meditation&q=MTgwMg%3D%3D',
+        'Amazon': 'https://www.amazon.in/dp/8167451763/ref=sr_1_1?crid',
+        'Flipkart': 'https://www.flipkart.com/science-meditation-evidence-based-applications-healthcare/p/itmd908f2708ddd8?pid',
+      },
+    },
   ];
 
   @override
@@ -168,7 +181,7 @@ class BooksScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                '9 titles published · NCAHP & Research Methodology Series',
+                '${_books.length} titles published · NCAHP, Healthcare & Research Series',
                 style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey[500]),
               ),
               const SizedBox(height: 32),

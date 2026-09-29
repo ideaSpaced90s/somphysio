@@ -84,7 +84,7 @@ class HeroSection extends StatelessWidget {
                         ),
                         const SizedBox(height: 24),
                         Text(
-                          'Dr. Som Sankar Mukherjee is a dynamic and accomplished Physiotherapy professional with 20 years of clinical excellence and 18 years of academic expertise. Currently Chairperson of the Arunachal Pradesh Allied & Healthcare Council, he is the author of 7+ textbooks and 30+ research articles, committed to advancing evidence-based practice and transformative education.',
+                          'Dr. Som Sankar Mukherjee is a dynamic and accomplished Physiotherapy professional with 20 years of clinical excellence and 18 years of academic expertise. Currently Chairperson of the Arunachal Pradesh Allied & Healthcare Council, he is the author of 10+ textbooks and 30+ research articles, committed to advancing evidence-based practice and transformative education.',
                           style: theme.textTheme.titleMedium?.copyWith(
                             color: Colors.white.withValues(alpha: 0.9),
                             height: 1.6,

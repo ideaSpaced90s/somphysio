@@ -253,7 +253,7 @@ class ResearchScreen extends StatelessWidget {
         'icon': Icons.article_outlined,
       },
       {
-        'value': '9+',
+        'value': '10+',
         'label': 'Academic Textbooks',
         'sub': 'NCAHP Curriculum Compliant',
         'icon': Icons.menu_book_outlined,
