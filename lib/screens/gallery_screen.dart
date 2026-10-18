@@ -94,6 +94,76 @@ class _GalleryScreenState extends State<GalleryScreen> {
       category: 'National Regulatory & Policy Summits',
       categoryIcon: Icons.account_balance_outlined,
     ),
+    GalleryItem(
+      code: 'B4',
+      sectionLetter: 'B',
+      imagePath: 'assets/images/ncahp_3rd_meeting_01.jpeg',
+      title: '3rd NCAHP Meeting - Inaugural Session',
+      description:
+          'Dr. Som actively attending the inaugural proceedings of the 3rd NCAHP Meeting, joining leadership and commission members to review national allied healthcare frameworks.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      code: 'B5',
+      sectionLetter: 'B',
+      imagePath: 'assets/images/ncahp_3rd_meeting_02.jpeg',
+      title: '3rd NCAHP Meeting - National Council Deliberations',
+      description:
+          'Dr. Som participating in national council deliberations during the 3rd NCAHP meeting, focusing on curriculum standards and professional regulations.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      code: 'B6',
+      sectionLetter: 'B',
+      imagePath: 'assets/images/ncahp_3rd_meeting_03.jpeg',
+      title: '3rd NCAHP Meeting - Policy Framework Discussions',
+      description:
+          'Engaging in high-level policy dialogue at the 3rd NCAHP meeting regarding institutional accreditation and state council alignments for allied healthcare professionals.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      code: 'B7',
+      sectionLetter: 'B',
+      imagePath: 'assets/images/ncahp_3rd_meeting_04.jpeg',
+      title: '3rd NCAHP Meeting - Commission Delegates Assembly',
+      description:
+          'Dr. Som alongside fellow state representatives and health ministry delegates during the general session of the 3rd NCAHP Meeting in New Delhi.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      code: 'B8',
+      sectionLetter: 'B',
+      imagePath: 'assets/images/ncahp_3rd_meeting_05.jpeg',
+      title: '3rd NCAHP Meeting - Allied Health Council Leadership',
+      description:
+          'Dr. Som interacting with national leaders and commission officials to advocate for the advancement and regulation of physiotherapy and allied healthcare.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      code: 'B9',
+      sectionLetter: 'B',
+      imagePath: 'assets/images/ncahp_3rd_meeting_06.jpeg',
+      title: '3rd NCAHP Meeting - Strategic Consultations',
+      description:
+          'In-depth strategic consultation session addressing implementation timelines and state council harmonization under the NCAHP mandate.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
+    GalleryItem(
+      code: 'B10',
+      sectionLetter: 'B',
+      imagePath: 'assets/images/ncahp_3rd_meeting_07.jpeg',
+      title: '3rd NCAHP Meeting - National Commemoration',
+      description:
+          'Commemorative assembly of national and state delegates at the conclusion of the successful 3rd National Commission for Allied and Healthcare Professions meeting.',
+      category: 'National Regulatory & Policy Summits',
+      categoryIcon: Icons.account_balance_outlined,
+    ),
 
     // Section C: Institutional Leadership & Council Meetings
     GalleryItem(
